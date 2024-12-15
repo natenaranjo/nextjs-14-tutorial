@@ -1,10 +1,10 @@
 import React from "react"
 
-const ProductDetails = async ({
-  params,
-}: {
+type PageProps = {
   params: Record<string, string>
-}) => {
+}
+
+const ProductDetails = ({ params }: PageProps) => {
   return <h1>Product ID: {params.productId}</h1>
 }
 
