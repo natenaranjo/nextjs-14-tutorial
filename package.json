@@ -73,16 +73,8 @@
         "section": "Tests"
       },
       {
-        "type": "build",
-        "section": "Build System"
-      },
-      {
         "type": "ci",
         "section": "CI/CD Configurations"
-      },
-      {
-        "type": "chore",
-        "section": "Maintenance"
       },
       {
         "type": "revert",

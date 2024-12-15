@@ -1,1 +1,2 @@
-pnpm run build
+bun run build
+bun run release
