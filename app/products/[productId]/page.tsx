@@ -1,15 +1,7 @@
-import React from "react"
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const ProductDetails = async ({
-  params,
-}: {
-  params: {
-    productId: string
-  }
-}): Promise<unknown> => {
-  return <h1>Product ID: {params.productId}</h1>
+type PageProps = {
+  params: { productId: string }
 }
 
-export default ProductDetails
+export default function ProductPage({ params }: PageProps) {
+  return <div>Details on product {params.productId}</div>
+}
