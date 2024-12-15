@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation"
+
 type ParamsType = Promise<{
   productId: string
   reviewId: string
@@ -5,6 +7,11 @@ type ParamsType = Promise<{
 
 const ReviewDetail = async ({ params }: { params: ParamsType }) => {
   const { productId, reviewId } = await params
+
+  if (parseInt(reviewId) > 1000) {
+    notFound()
+  }
+
   return (
     <div>
       Review {reviewId} for product {productId}{" "}
