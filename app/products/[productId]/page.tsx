@@ -1,7 +1,6 @@
-type PageProps = {
-  params: { productId: string }
-}
+type ParamsType = Promise<{ productId: string }>
 
-export default function ProductPage({ params }: PageProps) {
-  return <div>Details on product {params.productId}</div>
+export default async function ProductPage({ params }: { params: ParamsType }) {
+  const { productId } = await params
+  return <div>Details on product {productId}</div>
 }
