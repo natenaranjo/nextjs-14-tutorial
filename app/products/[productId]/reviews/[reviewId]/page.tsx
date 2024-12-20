@@ -11,7 +11,7 @@ function getRandomInt(count: number) {
   return Math.floor(Math.random() * count)
 }
 
-const ReviewDetail = async ({ params }: Props) => {
+export default async function ReviewDetail({ params }: Props) {
   const random = getRandomInt(2)
 
   if (random === 1) throw new Error("Error loading review")
@@ -22,9 +22,7 @@ const ReviewDetail = async ({ params }: Props) => {
 
   return (
     <div>
-      Review {(await params).reviewId} for product {(await params).productId}{" "}
+      Review {(await params).reviewId} for product {(await params).productId}
     </div>
   )
 }
-
-export default ReviewDetail
