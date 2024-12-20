@@ -1,20 +1,28 @@
 import { notFound } from "next/navigation"
 
-type ParamsType = Promise<{
-  productId: string
-  reviewId: string
-}>
+type Props = {
+  params: Promise<{
+    productId: string
+    reviewId: string
+  }>
+}
 
-const ReviewDetail = async ({ params }: { params: ParamsType }) => {
-  const { productId, reviewId } = await params
+function getRandomInt(count: number) {
+  return Math.floor(Math.random() * count)
+}
 
-  if (parseInt(reviewId) > 1000) {
+const ReviewDetail = async ({ params }: Props) => {
+  const random = getRandomInt(2)
+
+  if (random === 1) throw new Error("Error loading review")
+
+  if (parseInt((await params).reviewId) > 1000) {
     notFound()
   }
 
   return (
     <div>
-      Review {reviewId} for product {productId}{" "}
+      Review {(await params).reviewId} for product {(await params).productId}{" "}
     </div>
   )
 }
